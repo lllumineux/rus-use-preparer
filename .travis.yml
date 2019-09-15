@@ -1,1 +1,15 @@
 language: python
+cache: pip
+
+python: "3.7"
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - black -q --check app
+  - isort -rc app
+  - pylint -E app
+
+after_success:
+  - pylint app
