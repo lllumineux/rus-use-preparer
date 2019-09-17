@@ -3,6 +3,8 @@ cache: pip
 
 python: "3.7"
 
+if: (type = push AND branch IN (master, dev)) OR (type = pull_request AND NOT branch =~ /no-ci/)
+
 install:
   - pip install -r requirements.txt
 
